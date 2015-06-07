@@ -38,7 +38,7 @@
         </div>
         </div>
         <div class="container" ng-repeat="job in jobs | orderBy:sortField:reverse | filter:{'category':category} | filter:search">
-            <img class="image" ng-src="../images/logos/{{job.image}}.jpg">
+            <img class="image" ng-src="images/logos/{{job.image}}.jpg">
             <div class="company-container">
                 <span class="title">{{job.name}}</span>
                 <span class="category-and-company">{{job.category}} @ {{job.company}}</span>
