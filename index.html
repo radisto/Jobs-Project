@@ -3,18 +3,57 @@
 
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Stay Employed</title>
-    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+    <title>Stay employed</title>
+    <link rel="shortcut icon" type="image/png" href="images/logo.jpg" />
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body ng-controller="appController">
+    <header>
+        <span>Stay employed</span>
+        <img src="images/header.jpg">
+    </header>
+   
+    <div id="wrapper">
+        <div ng-init="sortField='date'; reverse=true">
+        <div ng-init="category=''">
+            <input type="radio" ng-model="category" value="" id="all">
+            <label for="all">All Categories</label>
+            <input type="radio" ng-model="category" value="Front-end Development" id="front">
+            <label for="front">Front-end Development</label>
+            <input type="radio" ng-model="category" value="Back-end Development" id="back">
+            <label for="back">Back-end Development</label>
+            <input type="radio" ng-model="category" value="UI Design" id="ui">
+            <label for="ui">UI Design</label>
+        </div>
+    
+        <div>
+            <span>Sort by:</span>
+            <button class="sort" ng-click="sortField='name'; reverse=!reverse">Title</button>
+            <button class="sort" ng-click="sortField='company'; reverse=!reverse">Company</button>
+            <button class="sort" ng-click="sortField='city'; reverse=!reverse">City</button>
+            <button class="sort" ng-click="sortField='date'; reverse=!reverse">Date</button>
 
-    <div id="wrapper" ng-view></div>
+            <input type="text" id="search" placeholder="Search" ng-model="search">
+        </div>
+        </div>
+        <div class="container" ng-repeat="job in jobs | orderBy:sortField:reverse | filter:{'category':category} | filter:search">
+            <img class="image" ng-src="../images/logos/{{job.image}}.jpg">
+            <div class="company-container">
+                <span class="title">{{job.name}}</span>
+                <span class="category-and-company">{{job.category}} @ {{job.company}}</span>
+            </div>
+            <span class="city">{{job.city}}</span>
+            <span class="date">{{checkIfToday(job.date) ? 'today' : checkIfYesterday(job.date) ? 'yesterday' : job.date}}</span>
+        </div>
+        <button id="more" ng-click="more()">Load the next 20 listings ({{count}} more in total)</button>
+    </div>
+    
+    <footer>
+        <span>© 2015 Stay employed Inc.</span>
+    </footer>
 
-    <script src="lib/angular.js"></script>
-    <script src="lib/angular-route.js"></script>
-    <script src="lib/jquery-2.1.4.min.js"></script> <!--Remove if not needed-->
+    <script src="lib/angular.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/service.js"></script>
     <script src="scripts/controllers.js"></script>

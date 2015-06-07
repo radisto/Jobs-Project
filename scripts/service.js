@@ -7,7 +7,7 @@ myApp.service('myService', function ($http, $q, URL) {
 
     service.showAllJobs = function (limit, skip) {
         var defer = $q.defer();
-        $http.get('https://api.parse.com/1/classes/Job?limit=' + limit + '&skip=' + skip)
+        $http.get('https://api.parse.com/1/classes/Job?count=1&limit=' + limit + '&skip=' + skip)
             .success(function (data) {
                 defer.resolve(data);
             })
@@ -48,29 +48,3 @@ myApp.service('myService', function ($http, $q, URL) {
 
     return service;
 });
-
-
-
-//$('#wrapper').empty();
-//    var limit = 5;
-//    var skip = 5;
-//    ajaxGet(limit)
-//        .done(function (data) {
-//            nextImages(data);
-//        });
-//
-//    function nextImages(data) {
-//        var template = $('#single-template').html();
-//        var rendered = Mustache.render(template, data);
-//        $('#wrapper').append(rendered);
-//    }
-//
-//    $(window).scroll(function () {
-//        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-//            ajaxGet(limit, skip)
-//                .done(function (data) {
-//                    nextImages(data);
-//                    skip += 5;
-//                });
-//        }
-//    });

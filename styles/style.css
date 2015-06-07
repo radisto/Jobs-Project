@@ -1,0 +1,155 @@
+@font-face {
+    font-family: Calibri;
+    src: url(../fonts/Calibri.ttf);
+}
+
+@font-face {
+    font-family: MagicPies;
+    src: url(../fonts/MagicPies.otf);
+}
+
+body {
+    margin: 0;
+    font-family: Calibri;
+}
+
+header {
+    height: 164px;
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
+}
+
+footer {
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid gray;
+}
+
+header img {
+    float: right;
+}
+
+header span {
+    font-size: 100px;
+    font-family: MagicPies;
+    margin-left: 100px;
+    line-height: 180px;
+}
+
+@media (max-width: 1000px) {
+    header {
+        height: 100px;
+        border-bottom: 1px solid gray;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    header img {
+        display: none;
+    }
+    
+    header span {
+        margin-left: 0;
+        font-size: 70px;
+        line-height: 100px;
+    }
+}
+
+#wrapper {
+    width: 750px;
+    margin: 0 auto;
+}
+
+.image {
+    width: 40px;
+    height: 40px;
+    margin: 5px 15px 5px 0;
+}
+
+.company-container {
+    width: 400px;
+    display: inline-block;
+    vertical-align: 12px;
+}
+
+.category-and-company {
+    font-size: 14px;
+}
+
+.city {
+    width: 180px;
+    display: inline-block;
+    vertical-align: 15px;
+}
+
+.date {
+    width: 70px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: 15px;
+}
+
+.title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    word-spacing: 0.5px;
+}
+
+.container {
+    padding: 10px 0 10px 25px;
+}
+
+.container:nth-of-type(even) {
+    background: rgb(245, 245, 245);
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+.container:hover {
+    background: rgb(255, 255, 200);
+    cursor: pointer;
+}
+
+#more {
+    width: 100%;
+    background: rgb(225, 255, 225);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 18px;
+}
+
+#more:hover {
+    cursor: pointer;
+    background: rgb(255, 255, 200);
+}
+
+.sort {
+    background: white;
+    border: none;
+    text-decoration: underline;
+    margin: 0 5px 20px; 5px;
+}
+
+.sort:hover {
+    cursor: pointer;
+}
+
+#search {
+    float: right;
+    padding: 3px 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 150px;
+}
+
+label {
+    margin-right: 25px;
+}
+
+input[type="radio"] {
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
