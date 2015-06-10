@@ -31,12 +31,14 @@ myApp.controller('appController', function ($scope, myService) {
         });
     }
     $scope.more();
+    
     $scope.checkIfToday = function(date) {
         if (date.split(' ')[1] == today.getDate()) {
             return true;
         }
         return false;
     }
+    
     $scope.checkIfYesterday = function(date) {
         var yesterday = new Date(today);
         yesterday.setDate(today.getDate()-1);
@@ -44,5 +46,9 @@ myApp.controller('appController', function ($scope, myService) {
             return true;
         }
         return false;
+    }
+    
+    $scope.sortDate = function (job) {
+        return parseInt(job.date.split(' ')[1]);
     }
 });

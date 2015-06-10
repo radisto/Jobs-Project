@@ -15,7 +15,7 @@
     </header>
    
     <div id="wrapper">
-        <div ng-init="sortField='date'; reverse=true">
+        <div ng-init="sortField=sortDate; reverse=true">
         <div ng-init="category=''">
             <input type="radio" ng-model="category" value="" id="all">
             <label for="all">All Categories</label>
@@ -32,7 +32,7 @@
             <button class="sort" ng-click="sortField='name'; reverse=!reverse">Title</button>
             <button class="sort" ng-click="sortField='company'; reverse=!reverse">Company</button>
             <button class="sort" ng-click="sortField='city'; reverse=!reverse">City</button>
-            <button class="sort" ng-click="sortField='date'; reverse=!reverse">Date</button>
+            <button class="sort" ng-click="sortField=sortDate">Date</button>
 
             <input type="text" id="search" placeholder="Search" ng-model="search">
         </div>
